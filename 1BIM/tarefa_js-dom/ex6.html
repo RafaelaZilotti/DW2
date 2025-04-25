@@ -5,14 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio 6 - JavaScript DOM</title>
 </head>
-<body>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
 
-    <img id="lampada" src="" alt="lampada" style="cursor: pointer; width: 200px;;">
+    body{
+        text-align: center;
+    }
+
+    #lampada{
+        cursor: pointer;
+        width: 500px;
+    }
+
+</style>
+<body>
+    <h1>lampada</h1>
+    <h4>Rafaela Zilotti da Silva</h4>
+
+    <img id="lampada" src="https://img.notionusercontent.com/s3/prod-files-secure%2F48a2f079-68a5-4bb5-99eb-51881ae2de09%2F26891a41-5a4a-4f77-9e96-c2ca5ee9530d%2Flampada-on.jpg/size/w=2000?exp=1745681684&sig=xH8CAkxp9t1xDYr9EGUxQL_O33zk-DJixU5XxNIppnU&id=a2b7683d-d176-4227-917d-db4712a8751c&table=block" alt="lampada">
 
     <script>
         const lampada = document.getElementById('lampada');
-        const apagada = 'https://raw.githubusercontent.com/gabrieldarezzo/helpjs-ravi/master/images/lampada.jpg';
-        const acesa = '';
+        const apagada = 'https://img.notionusercontent.com/s3/prod-files-secure%2F48a2f079-68a5-4bb5-99eb-51881ae2de09%2F6e872490-5204-4a55-9531-4186ead1b57f%2Flampada-off.jpg/size/w=2000?exp=1745681653&sig=4Y_ire84naiba7BeX79QNX1lCsw64wcByJaDeomRjMs&id=b9392177-2b85-4260-bb3d-f2ea684e0b86&table=block';
+        const acesa = 'https://img.notionusercontent.com/s3/prod-files-secure%2F48a2f079-68a5-4bb5-99eb-51881ae2de09%2F26891a41-5a4a-4f77-9e96-c2ca5ee9530d%2Flampada-on.jpg/size/w=2000?exp=1745681684&sig=xH8CAkxp9t1xDYr9EGUxQL_O33zk-DJixU5XxNIppnU&id=a2b7683d-d176-4227-917d-db4712a8751c&table=block';
         
         lampada.onclick = function() {
             if (lampada.src === apagada) {
