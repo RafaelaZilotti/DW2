@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6 - JavaScript DOM</title>
+</head>
+<body>
+
+    <img id="lampada" src="" alt="lampada" style="cursor: pointer; width: 200px;;">
+
+    <script>
+        const lampada = document.getElementById('lampada');
+        const apagada = 'https://raw.githubusercontent.com/gabrieldarezzo/helpjs-ravi/master/images/lampada.jpg';
+        const acesa = '';
+        
+        lampada.onclick = function() {
+            if (lampada.src === apagada) {
+                lampada.src = acesa;
+            } else {
+                lampada.src = apagada;
+            }
+        };
+    </script>
+</body>
+</html>
