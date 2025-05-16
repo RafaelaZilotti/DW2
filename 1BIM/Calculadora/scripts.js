@@ -41,7 +41,21 @@ btnIgual.addEventListener("click", () => {
 
 // Botões dos números
 
+btnBotoes.forEach((btn)=>{
+  btn.addEventListener("click", () => {
+    adicionaNumero(calculadora, btn.innerText)
+  })
+});
+
 // Botões dos operadores
+
+btnOperacoes.forEach((btn)=>{
+  btn.addEventListener("click", () => {
+    escolheOperador(calculadora, btn.innerText);
+  });
+});
+
+
 
 /****************************************************************
  * Regras da aplicação
@@ -53,6 +67,8 @@ btnIgual.addEventListener("click", () => {
  *  O elemento display é atualizado com o atributo operandoAtual
  */
 function atualizaDisplay(calculadora) {
+  calculadora.bufferTextoElemento.innerText = calculadora.operandoAnterior + " " + calculadora.operador;
+  calculadora.displayTextoElemento.innerText = calculadora.operandoAtual || "0";
 
 }
 
@@ -60,7 +76,10 @@ function atualizaDisplay(calculadora) {
  * Para atualizar o dispay, chame a função responsável por isso.
  */
 function limpaVariaveis(calculadora) {
-
+  calculadora.operandoAnterior = "";
+  calculadora.operandoAtual = "";
+  calculadora.operador = "";
+  atualizaDisplay(calculadora);
 }
 
 /* Função chamada quando um botão de número é pressionado
@@ -69,6 +88,12 @@ function limpaVariaveis(calculadora) {
  * O dígito "." deve receber um tratamento especial
  */
 function adicionaNumero(calculadora, numero) {
+  if(numero === "." && calculadora.operandoAtual.includes(".")){
+    return;
+  }
+
+  calculadora.operandoAtual += numero
+  atualizaDisplay(calculadora)
 
 }
 
@@ -81,7 +106,14 @@ function adicionaNumero(calculadora, numero) {
  * - copiar operandoAtual para o operandoAnterior, deixando a calculadora preparada para receber o próximo número
  */
 function escolheOperador(calculadora, operador) {
+  if(calculadora.operandoAnterior != "" && calculadora.operandoAtual != ""){
+    executaCalculo(calculadora)
+  };
 
+  calculadora.operador = operador;
+  calculadora.operandoAnterior = calculadora.operandoAtual;
+  calculadora.operandoAtual = "";
+  atualizaDisplay(calculadora);
 }
 
 /* A função recebe o objeto calculadora e executa o calculo
@@ -91,12 +123,44 @@ function escolheOperador(calculadora, operador) {
  * - Atualizar o display
  */
 function executaCalculo(calculadora) {
+  const anterior = parseFloat(calculadora.operandoAnterior);
+  const atual = parseFloat(calculadora.operandoAtual);
 
+  if(isNaN(anterior) || isNaN(atual)){
+    return;
+  };
+
+  let result = 0;
+  switch(calculadora.operador){
+    case "+":
+      result = anterior + atual
+      break;
+    case "-":
+      result = anterior - atual
+      break;
+    case "*":
+      result = anterior * atual
+      break;
+    case "÷":
+      if(atual === 0){
+        alert("Nao e possivel dividir por 0");
+        limpaVariaveis(calculadora);
+        return;
+      }
+      result = anterior / atual
+      break;
+  };
+
+  calculadora.operandoAtual = result.toString();
+  calculadora.operandoAnterior = "";
+  calculadora.operador = "";
+  atualizaDisplay(calculadora);
 }
 
 /* Função chamada quando o botão delete for pressionado
  * Apaga o último dígito digitado no
  */
 function apagaDigito(calculadora) {
-    
+    calculadora.operandoAtual = calculadora.operandoAtual.slice(0, -1)
+    atualizaDisplay(calculadora)
 }
