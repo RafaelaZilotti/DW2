@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefa API - Rafaela Zilotti da Silva</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="cabecalho">
+        <h1>BIBLIOTECA</h1>
+    </div>
+    <br>
+
+    <form action="#" method="POST">
+        <div class="form-group inline-group">
+            <label for="isbn">ISBN do livro:</label>
+            <input type="number" id="isbn" placeholder="Digite o isbn do livro" required>
+            <button type="button" onclick="buscarLivro()">Buscar</button>
+        </div>
+        <div class="form-group">
+            <label for="titulo">Titulo do livro:</label>
+            <input type="text" id="titulo" placeholder="Digite o titulo do livro" required>
+        </div>
+        <div class="form-group">
+            <label for="subtitulo">Subtitulo do livro:</label>
+            <input type="text" id="subtitulo" placeholder="Digite o subtitulo">
+        </div>
+        <div class="form-group">
+            <label for="autores">Autores:</label>
+            <input type="text" id="autores" placeholder="Digite os autores" required>
+        </div>
+        <div class="form-group">
+            <label for="sinopse">Sinopse:</label>
+            <input type="text" id="sinopse" placeholder="Digite a sinopse">
+        </div>
+        <div class="form-group">
+            <label for="ano">Ano de publicação:</label>
+            <input type="text" id="ano" placeholder="Digite o ano" required>
+        </div>
+        <div class="form-group">
+            <label for="formato">Formato:</label>
+            <input type="text" id="formato" placeholder="Digite o formato" required>
+        </div>
+        <div class="form-group">
+            <label for="paginas">Quantia de paginas:</label>
+            <input type="text" id="paginas" placeholder="Digite a quantia de paginas" required>
+        </div>
+        <div class="form-group">
+            <label for="temas">Temas:</label>
+            <input type="text" id="temas" placeholder="Digite os temas do livro" required>
+        </div>
+        <button type="submit">Enviar</button>
+
+    </form>
+
+    <script src="./script.js"></script>
+    
+</body>
+</html>

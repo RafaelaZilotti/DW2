@@ -1,0 +1,46 @@
+
+body {
+    font-family: Arial;
+    line-height: 1.6;
+}
+
+.cabecalho{
+    height: 10vh;
+    width: 99vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #a31e1e;
+    font-weight: bolder;
+    font-size:larger;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    align-content: center;
+    justify-content: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select {
+    width: 60%; /* Reduzindo a largura dos campos */
+    padding: 8px;
+}
+
+
+button {
+    padding: 10px 15px;
+    background-color: #7c0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a31e1e;
+}
