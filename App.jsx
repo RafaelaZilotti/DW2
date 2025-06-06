@@ -1,19 +1,15 @@
-import Header from './Header'
-import Footer from './Footer'
-import MainContent from './MainContent'
-import './App.css';
+import Contador from './Contador'
+import './App.css'
+
 
 function App() {
-
   return (
-    <div className="app">
-      <Header />
-      <MainContent />
-      <Footer />
+    <div>
+      <h1>Exemplo resct com useState (Hooks)</h1>
+      <Contador/>
     </div>
-  );
-
+  )
+  
 }
-
 
 export default App
